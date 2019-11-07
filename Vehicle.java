@@ -1,47 +1,95 @@
 package vehiclestarter;
 
- 
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author 20023355
+ */
 public class Vehicle {
-	private String	manufacturer;
-	private String	model;
-	private int	makeYear;
-        // TODO add Registration Number 
-        // TODO add variable for OdometerReading (in KM), 
-        // TODO add variable for TankCapacity (in litres)
-               
-	private FuelPurchase	fuelPurchase;
-
-	/**
-	 * Class constructor specifying name of make (manufacturer), model and year
-	 * of make.
-	 * @param manufacturer
-	 * @param model
-	 * @param makeYear
-	 */
-	public Vehicle(String manufacturer, String model, int makeYear) {
-		this.manufacturer = manufacturer;
-		this.model = model;
-		this.makeYear = makeYear;
-		fuelPurchase = new FuelPurchase();
-	}
-
-        // TODO Add missing getter and setter methods
-        
-	/**
-	 * Prints details for {@link Vehicle}
-	 */
-	public void printDetails() {
-		System.out.println("Vehicle: " + makeYear + " " + manufacturer + " " + model);		
-                // TODO Display additional information about this vehicle
-	}
-
-        
-        // TODO Create an addKilometers method which takes a parameter for distance travelled 
-        // and adds it to the odometer reading. 
-
-        // adds fuel to the car
-        public void addFuel(double litres, double price){            
-            fuelPurchase.purchaseFuel(litres, price);
-        }        
-
+    private String manufacturer;
+    private String model;
+    private int makeYear;
+    private int registrationNumber;
+    private int odoKM = 0;
+    private int tankCapacity;
+    
+    private FuelPurchase fuelPurchase;
+    
+    public Vehicle(String manufacturer, String model, int makeYear){ // Constructor
+        this.manufacturer = manufacturer;
+        this.model = model;
+        this.makeYear = makeYear;
+        fuelPurchase = new FuelPurchase();
+    }
+    
+    
+    // Getter and Setter Methods
+    public String getManu(){
+        return manufacturer;
+    }
+    
+    public void setManu(String newManu){
+        this.manufacturer = newManu;
+    }
+    
+    public String getModel(){
+        return model;
+    }
+    
+    public void setModel(String newModel){
+        this.model = newModel;
+    }
+    
+    public int getMake(){
+        return makeYear;
+    }
+    
+    public void setMake(int newMake){
+        this.makeYear = newMake;
+    }
+    
+    public int getRNo(){
+        return registrationNumber;
+    }
+    
+    public void setRNo(int newRNo){
+        this.registrationNumber = newRNo;
+    }
+    
+    public int getTankCap(){
+        return tankCapacity;
+    }
+    
+    public void setTankCap(int newTankCap){
+        this.tankCapacity = newTankCap;
+    }
+    
+    // end of getter and setter methods
+    
+    public void printDetails(){
+        System.out.println("Vehicle: " + makeYear + " " + manufacturer + " " + model + " Travelled: " + odoKM + "km");
+    }
+    // Prints details
+   
+   // adds distance travelled to the odoMeter reading in KM
+    public void odoAddKm(int distanceTravelled){
+        this.odoKM = distanceTravelled;
+    }
+    
+    
+    // add fuel to the car
+    public void addFuel(double litres, double price){
+        fuelPurchase.purchaseFuel(litres, price);
+    }
+    
+       
+    
+    
+       
+       
 }
