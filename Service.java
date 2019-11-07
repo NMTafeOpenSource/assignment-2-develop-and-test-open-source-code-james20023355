@@ -1,45 +1,39 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package vehiclestarter;
 
+import java.util.Date;
+
+/**
+ *
+ * @author 20023355
+ */
 public class Service {
-    
-    // Constant to indicate that the vehicle needs to be serviced every 10,000km
     public static final int SERVICE_KILOMETER_LIMIT = 10000;
     
-    private int lastServiceOdometerKm=0;
-    private int serviceCount=0;
-    // TODO add lastServiceDate
+    private int lastServiceOdoKM = 0;
+    private int serviceCount = 0;
+    private Date lastServiceDate;
     
-    // return the last service
-    public int getLastServiceOdometerKm()
-    {
-        return this.lastServiceOdometerKm;
-    }    
-    
-    /**
-     * The function recordService expects the total distance traveled by the car, 
-     * saves it and increase serviceCount.
-     * @param distance 
-     */
-    public void recordService(int distance)
-    {
-        this.lastServiceOdometerKm = distance;
-        this.serviceCount ++;
+    public int getLastServiceKM(){
+        return this.lastServiceOdoKM;
     }
     
-    // return how many services the car has had
-    public int getServiceCount()
-    {
+    public void recordService(int distance){
+        this.lastServiceOdoKM = distance;
+        this.serviceCount ++;
+        this.lastServiceDate = new Date();
+    }
+    
+    public int getServiceCount(){
         return this.serviceCount;
     }
     
-    /**
-     * Calculates the total services by dividing kilometers by
-     * {@link #SERVICE_KILOMETER_LIMIT} and floors the value. 
-     * 
-     * @return the number of services needed per SERVICE_KILOMETER_LIMIT
-     */
-    public int getTotalScheduledServices() {
-            return (int) Math.floor(lastServiceOdometerKm / SERVICE_KILOMETER_LIMIT);
+    public int getTotalScheduledServices(){
+        return(int) Math.floor(lastServiceOdoKM / SERVICE_KILOMETER_LIMIT);
     }
-    
 }
+ 
