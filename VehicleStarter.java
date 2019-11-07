@@ -5,27 +5,17 @@
  */
 package vehiclestarter;
 
-import java.util.Random;
-
 /**
- * Starter code for Vehicle application. 
- * This class displays sample output to the console.
- * @author AUTHORNAME
+ *
+ * @author 20023355
  */
 public class VehicleStarter {
 
-    /** Main entry point to the program
+    /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {        
-        Vehicle v = new Vehicle("Ford", "T812", 2014);
-        5646846546546
-		
-		// Vehicle sample distance
-            v.addFuel(new Random().nextDouble()*10, 1.3);
-
-            v.printDetails();                
-            System.out.println("\n\n");
+    public static void main(String[] args) {
+        // TODO code application logic here
     }
     
 }
